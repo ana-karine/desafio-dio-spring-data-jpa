@@ -21,9 +21,4 @@ public class AvaliacaoFisicaController {
         return service.create(form);
     }
 
-    /*@GetMapping
-    public List<AvaliacaoFisica> getAll(){
-        return service.getAll();
-    }*/
-
 }

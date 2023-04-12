@@ -4,11 +4,13 @@ import me.dio.academia.digital.dto.AlunoForm;
 import me.dio.academia.digital.dto.AlunoUpdateForm;
 import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.entity.AvaliacaoFisica;
+import me.dio.academia.digital.infra.utils.JavaTimeUtils;
 import me.dio.academia.digital.repository.AlunoRepository;
 import me.dio.academia.digital.service.interfaces.IAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -16,31 +18,6 @@ public class AlunoService implements IAlunoService {
 
     @Autowired
     private AlunoRepository repository;
-
-    @Override
-    public Aluno get(Long id) {
-        return null;
-    }
-
-    @Override
-    public List<Aluno> getAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public Aluno update(Long id, AlunoUpdateForm formUpdate) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long id) {
-
-    }
-
-    /*@Override
-    public List<AvaliacaoFisica> getAllAvaliacaoFisicaId(Long id) {
-        return null;
-    }*/
 
     @Override
     public Aluno create(AlunoForm form) {
@@ -53,12 +30,7 @@ public class AlunoService implements IAlunoService {
         return repository.save(aluno);
     }
 
-    /*@Override
-    public Aluno get(Long id) {
-        return null;
-    }
-*/
-    /*@Override
+    @Override
     public List<Aluno> getAll(String dataDeNascimento) {
 
         if(dataDeNascimento == null) {
@@ -68,22 +40,36 @@ public class AlunoService implements IAlunoService {
             return repository.findByDataDeNascimento(localDate);
         }
 
-    }*/
+    }
 
-    /*@Override
-    public Aluno update(Long id, AlunoUpdateForm formUpdate) {
-        return null;
-    }*/
+    @Override
+    public Aluno get(Long id) {
+        Aluno aluno = repository.findById(id).get();
 
-    /*@Override
-    public void delete(Long id) {
-    }*/
+        return aluno;
+    }
 
     @Override
     public List<AvaliacaoFisica> getAllAvaliacaoFisicaId(Long id) {
         Aluno aluno = repository.findById(id).get();
 
         return aluno.getAvaliacoes();
+    }
+
+    @Override
+    public Aluno update(Long id, AlunoUpdateForm formUpdate) {
+        Aluno aluno = repository.findById(id).get();
+        aluno.setNome(formUpdate.getNome());
+        aluno.setBairro(formUpdate.getBairro());
+        aluno.setDataDeNascimento(formUpdate.getDataDeNascimento());
+
+        return repository.save(aluno);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Aluno aluno = repository.findById(id).get();
+        repository.delete(aluno);
     }
 
 }
