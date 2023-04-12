@@ -1,12 +1,10 @@
 package me.dio.academia.digital.entity;
 
-import lombok.Data;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+//@Data
 //@NoArgsConstructor
 //@AllArgsConstructor
 //@Entity
