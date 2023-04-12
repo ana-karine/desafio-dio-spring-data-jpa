@@ -1,8 +1,12 @@
 package me.dio.academia.digital.dto;
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AvaliacaoFisicaForm {
 
     //@Positive(message = "O Id do aluno precisa ser positivo.")

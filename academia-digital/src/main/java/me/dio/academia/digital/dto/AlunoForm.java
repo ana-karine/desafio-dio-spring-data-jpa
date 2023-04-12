@@ -1,10 +1,14 @@
 package me.dio.academia.digital.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AlunoForm {
 
 //    @NotEmpty(message = "Preencha o campo corretamente.")

@@ -1,4 +1,4 @@
-package me.dio.academia.digital.service;
+package me.dio.academia.digital.service.interfaces;
 
 import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.entity.AvaliacaoFisica;
@@ -26,7 +26,8 @@ public interface IAlunoService {
      * Retorna os Alunos que estão no banco de dados.
      * @return uma lista dos Alunos que estão salvos no DB.
      */
-    List<Aluno> getAll(String dataDeNascimento);
+    //List<Aluno> getAll(String dataDeNascimento);
+    List<Aluno> getAll();
 
     /**
      * Atualiza o Aluno.
